@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>M Ahmad Samdani - Portfolio</title>
+    <style>
+        /* Reset some default styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Border around the entire Home content */
+        .bordered-content {
+            border: 2px solid #90A85A; /* Border around main content */
+            border-radius: 30px;
+            padding: 10px;
+            margin: 20px;
+            height: 720px; /* Set the content height to 720px */
+            overflow: hidden; /* Prevent content overflow */
+        }
+
+        /* Header with border and centered alignment */
+        header {
+            padding: 20px;
+            text-align: center; /* Center-aligned header */
+            border: 2px solid #90A85A; /* Border around header */
+            border-radius: 50px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            margin-left: 300px;
+            margin-right: 350px;
+        }
+
+        .navbar {
+            list-style-type: none;
+            display: flex;
+            justify-content: center; /* Centered navbar links */
+        }
+
+        .navbar li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .navbar a.active {
+            color: #90A85A;
+        }
+
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px;
+            height: 80%; /* Use full height of the bordered-content */
+        }
+
+        .content {
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: #90A85A;
+        }
+
+        h1 span {
+            display: block;
+            color: #90A85A;
+            font-size: 4rem;
+            margin-top: 10px;
+        }
+
+        p {
+            margin: 20px 0;
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+        .buttons {
+            margin: 30px 0;
+        }
+
+        .btn {
+            border: 2px solid #90A85A;
+            color: #ffffff;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            margin-right: 20px;
+            border-radius: 30px;
+        }
+
+        .btn-hire {
+            background-color: #90A85A;
+            color: #000000;
+            padding: 13px 28px;
+        }
+
+
+        /* social icon*/
+        .icons {
+            margin-top: 50px;
+            margin-left: 20px;
+        }
+
+        .icons a {
+            margin-right: 10px;
+        }
+
+        /* Profile pic*/
+        .image-container {
+            max-width: 400px;
+            opacity: 0.8;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 50px 20px;
+            margin: 80px 20px;
+            margin-top: 0;
+            position: relative;
+        }
+
+        .about-section h2 {
+            font-size: 2.5rem;
+            color: #90A85A;
+            margin-bottom: 20px;
+            margin-top: 70px;
+            left: 120px;
+            position: relative;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .about-section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            max-width: 950px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .about-section h2::before {
+            content: '';
+            position: absolute;
+            left: -160px; /* Adjust to place the line at the correct distance */
+            top: 50%;
+            transform: translateY(-50%);
+            width: 120px; /* Adjust the length of the line */
+            height: 3px; /* Thickness of the line */
+            background-color: white; /* White line color */
+        }
+
+        /* Skill Section */
+        .skill-section {
+            padding: 3px 20px;
+            margin: 80px 20px;
+            margin-top: 0;
+            position: relative;
+        }
+
+        .skill-section h2 {
+            font-size: 2.5rem;
+            color: #90A85A;
+            margin-bottom: 20px;
+            margin-top: 0px;
+            left: 120px;
+            position: relative;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .skill-section h2::before {
+            content: '';
+            position: absolute;
+            left: -160px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 120px;
+            height: 3px;
+            background-color: white;
+        }
+
+        /* Marquee (Skill Section) */
+        .marquee {
+            width: 100%; /* Full width */
+            overflow: hidden; /* Hide overflowing content */
+            position: relative;
+        }
+
+        .marquee-content {
+            display: flex;
+            justify-content: space-around;
+            animation: marquee 10s linear infinite; /* Adjust speed (10s) for movement */
+        }
+
+        .marquee-content img {
+            width: 150px; /* Adjust image size */
+            height: auto;
+            margin-right: 30px;
+            border-radius: 10px;
+            opacity: 0.9;
+            margin-top: 20px;
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(100%); /* Start from the right */
+            }
+            to {
+                transform: translateX(-100%); /* Move to the left */
+            }
+        }
+        
+        .project-section {
+            padding: 50px 20px;
+            margin: 80px 20px;
+            margin-top: 0;
+            position: relative;
+        }
+
+        .project-section h2 {
+            font-size: 2.5rem;
+            color: #90A85A;
+            margin-bottom: 20px;
+            margin-top: 0px;
+            left: 120px;
+            position: relative;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .project-section h2::before {
+            content: '';
+            position: absolute;
+            left: -160px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 120px;
+            height: 3px;
+            background-color: white;
+        }
+
+        .experiences-section {
+            padding: 50px 20px;
+            margin: 80px 20px;
+            margin-top: 0;
+            position: relative;
+        }
+
+        .experiences-section h2 {
+            font-size: 2.5rem;
+            color: #90A85A;
+            margin-bottom: 20px;
+            margin-top: 0px;
+            left: 120px;
+            position: relative;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .experiences-section h2::before {
+            content: '';
+            position: absolute;
+            left: -160px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 120px;
+            height: 3px;
+            background-color: white;
+        }
+
+        /* Style for the grid container */
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+        grid-gap: 20px; /* Gap between the boxes */
+        padding: 20px;
+    }
+
+    /* Styling for the containers */
+    .container {
+        padding: 20px;
+        border: 2px solid #90A85A;
+        border-radius: 25px;
+        background-color: #000000; /* Slight background for contrast */
+    }
+
+    .container h3 {
+        color: #ffffff;
+        font-weight: bold;
+    }
+
+    .container h6 {
+        color: #90A85A;
+        font-weight: 300;
+    }
+
+    .container h4 {
+        color: #ffffff;
+        font-weight: 100;
+    }
+
+    .contact-section {
+        padding: 50px 20px;
+        margin: 80px 20px;
+        margin-top: 0;
+        position: relative;
+    }
+
+    .contact-section h2 {
+        font-size: 2.5rem;
+        color: #90A85A;
+        margin-bottom: 20px;
+        margin-top: 0px;
+        left: 120px;
+        position: relative;
+        display: inline-block;
+        text-align: left;
+    }
+
+    .contact-section h2::before {
+        content: '';
+        position: absolute;
+        left: -160px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 120px;
+        height: 3px;
+        background-color: white;
+    }
+    
+    .design{
+        padding: 20px;
+        width: 1000px;
+        border: 2px solid #90A85A; /* Border around header */
+        border-radius: 30px;
+        margin: center;
+        display: flex;
+        margin-inline-start: 10%;
+           
+    }
+
+    .design h2{
+        padding-top: 20px;
+        padding-bottom: 20px;
+        font-size: xxx-large;
+    }
+
+    .design a{
+        
+        margin: 50px 70px;
+        color: #ffffff;
+        padding: 15px 30px;
+        font-size: 1rem;
+        font-weight: bold;
+        text-decoration: none;
+        margin-right: 80px;
+        margin-left: 230px;
+        border-radius: 30px;
+        background-color: #90A85A;
+        color: #000000;
+        padding: 13px 28px;
+    }
+        
+        
+    </style>
+</head>
+<body>
+
+    <!-- Bordered content: Header + Hero Section -->
+    <div class="bordered-content" id="Home">
+        <header>
+            <nav>
+                <ul class="navbar">
+                    <li><a href="#Home" class="active">Home</a></li>
+                    <li><a href="#About">About</a></li>
+                    <li><a href="#skill">Skill</a></li>
+                    <li><a href="#project">Project</a></li>
+                    <li><a href="#exper">Experiences</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="hero" >
+            <div class="content">
+                <h1>Hello I’m <style>h1{color: white;}</style><span>M Ahmad Samdani</span></h1>
+                <p>I am a professional UI & UX Designer, Graphics Designer with Front-end App developer</p>
+                <div class="buttons">
+                    <a href="#" class="btn">Download CV</a>
+                    <a href="#" class="btn btn-hire">Hire me</a>
+                </div>
+                <div class="icons">
+                    <a href="https://github.com/MuhammadAhmadSamdani" target="_blank"><img src="images/git.png" alt="GitHub"></a>
+                    <a href="https://linkedin.com/in/muhammadahmadsamdani/" target="_blank"><img src="images/linkdin.png" alt="LinkedIn"></a>
+                    <a href="https://www.behance.net/muhammadsamdani" target="_blank"><img src="images/be.png" alt="Behance"></a>
+                     <a href="#"><img src="images/fiverr.png" alt="Fiverr"></a>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="images/my.jpeg" alt="M Ahmad Samdani">
+            </div>
+        </section>
+    </div>
+
+    <!-- About Me Section (outside the bordered content) -->
+    <section class="about-section" id="About">
+        <h2>About me</h2>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    </section>
+
+    <!-- Skill Section -->
+    <section class="skill-section" id="skill">
+        <h2>Skills</h2>
+        <div class="marquee">
+            <div class="marquee-content">
+                <img src="images/skills/photo.png" alt="Photoshop">
+                <img src="images/skills/ai.png" alt="Illustrator">
+                <img src="images/skills/figma.png" alt="Figma">
+                <img src="images/skills/wordpress.png" alt="WordPress">
+                <img src="images/skills/meta.png" alt="Meta">
+                <img src="images/skills/flutter.png" alt="Flutter">
+                <img src="images/skills/html.png" alt="HTML">
+                <img src="images/skills/css.png" alt="CSS">
+                <img src="images/skills/c.png" alt="C++">
+                <img src="images/skills/and.png" alt="Android Studio">
+                <img src="images/skills/firebase.png" alt="FireBase">
+                <img src="images/skills/ar.png" alt="Arduino">
+            </div>
+        </div>
+    </section>
+
+    <section class="project-section" id="project">
+        <h2>My <br> Project</h2>
+    </section>
+
+
+    <section class="experiences-section" id="exper">
+        <h2>Experiences</h2>
+        <div class="grid-container">
+            <!-- First Container -->
+            <div class="container">
+                <h3>Rana Enterprises</h3>
+                <h6>Dec 2022 - Present - 1 yr 10 mos</h6>
+                <br>
+                <h4>Lorem ipsum dolor sit, amet consectetur adipisicing.Lorem ipsum dolor</h4>
+                <h4>Lorem ipsum dolor sit, amet consectetur adipisicing.Lorem ipsum dolor</h4>
+                <h4>Lorem ipsum dolor sit, amet consectetur adipisicing.Lorem ipsum dolor</h4>
+                <h4>Lorem ipsum dolor sit, amet consectetur adipisicing.</h4>
+            </div>
+    
+            <!-- Second Container -->
+            <div class="container">
+                <h3>Rana Enterprises</h3>
+                <h6>Dec 2022 - Present - 1 yr 10 mos</h6>
+                <br>
+                <h4>Lorem ipsum dolor sit, amet consectetur adipisicing.Lorem ipsum dolor</h4>
+                <h4>Lorem ipsum dolor sit, amet consectetur adipisicing.Lorem ipsum dolor</h4>
+                <h4>Lorem ipsum dolor sit, amet consectetur adipisicing.Lorem ipsum dolor</h4>
+                <h4>Lorem ipsum dolor sit, amet consectetur adipisicing.</h4>
+            </div>
+    
+            <!-- Third Container -->
+            <div class="container">
+                <h3>Rana Enterprises</h3>
+                <h6>Dec 2022 - Present - 1 yr 10 mos</h6>
+                <br>
+                <h4>Lorem ipsum dolor sit, amet consectetur adipisicing.Lorem ipsum dolor</h4>
+                <h4>Lorem ipsum dolor sit, amet consectetur adipisicing.Lorem ipsum dolor</h4>
+                <h4>Lorem ipsum dolor sit, amet consectetur adipisicing.Lorem ipsum dolor</h4>
+                <h4>Lorem ipsum dolor sit, amet consectetur adipisicing.</h4>
+            </div>
+    
+            <!-- Fourth Container -->
+            <div class="container">
+                <h3>Rana Enterprises</h3>
+                <h6>Dec 2022 - Present - 1 yr 10 mos</h6>
+                <br>
+                <h4>Lorem ipsum dolor sit, amet consectetur adipisicing.Lorem ipsum dolor</h4>
+                <h4>Lorem ipsum dolor sit, amet consectetur adipisicing.Lorem ipsum dolor</h4>
+                <h4>Lorem ipsum dolor sit, amet consectetur adipisicing.Lorem ipsum dolor</h4>
+                <h4>Lorem ipsum dolor sit, amet consectetur adipisicing.</h4>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="box">
+        <div class="design">
+            <h2>Lets work together on <br> your next project </h2>
+        <a href="#">Contact Us</a>
+        </div>
+    </section>
+
+
+
+    <section class="contact-section" id="contact">
+        <h2>Contact Us</h2>
+    </section>
+
+
+</body>
+</html>
